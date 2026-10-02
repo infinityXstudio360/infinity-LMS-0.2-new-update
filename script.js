@@ -459,3 +459,13 @@ auth.onAuthStateChanged((user) => {
         }
     }
 });
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // යූසර් ලොග් වී ඇත: ලෝඩින් ස්ක්‍රීන් එක අයින් කරලා, සැබෑ පේජ් එක පෙන්වන්න
+        document.getElementById("loading-screen").style.display = "none";
+        document.getElementById("protected-content").style.display = "block";
+    } else {
+        // යූසර් ලොග් වී නැත: වහාම login.html වෙත යවන්න
+        window.location.replace("login.html");
+    }
+});
