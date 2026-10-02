@@ -1,3 +1,13 @@
+// Firebase Auth මඟින් යූසර් ලොග් වී ඇත්දැයි පරීක්ෂා කිරීම
+auth.onAuthStateChanged((user) => {
+    if (user) {
+        // යූසර් ලොග් වී ඇත, එබැවින් පේජ් එක පෙන්වන්න
+        document.getElementById("app-content").style.display = "block";
+    } else {
+        // යූසර් ලොග් වී නැත, වහාම login.html වෙත යවන්න
+        window.location.replace("login.html");
+    }
+});
 // Firebase සම්බන්ධ කරන කෝඩ් එක
 const firebaseConfig = {
     apiKey: "AIzaSyDSKSO0jLE7BSQFSyhDtLDMCsMivHf5R2g",
@@ -447,15 +457,5 @@ auth.onAuthStateChanged((user) => {
         if (window.location.pathname.indexOf('login.html') !== -1) {
             window.location.href = "index.html";
         }
-    }
-});
-// Firebase Auth මඟින් යූසර් ලොග් වී ඇත්දැයි පරීක්ෂා කිරීම
-auth.onAuthStateChanged((user) => {
-    if (user) {
-        // යූසර් ලොග් වී ඇත, එබැවින් පේජ් එක පෙන්වන්න
-        document.getElementById("app-content").style.display = "block";
-    } else {
-        // යූසර් ලොග් වී නැත, වහාම login.html වෙත යවන්න
-        window.location.replace("login.html");
     }
 });
